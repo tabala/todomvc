@@ -25,7 +25,7 @@ export const TodoItem = ({
 
 	const handleSubmit = () => {
 		if (inputState) {
-			onSave(inputState);
+			onSave(inputState.trim());
 		} else {
 			onDestroy();
 		}
@@ -38,7 +38,6 @@ export const TodoItem = ({
 
 	const handleKeyDown = (event: React.KeyboardEvent) => {
 		if (event.keyCode === ESCAPE_KEY) {
-			// setItemState({title: todo.title, tags: todo.tags});
 			setInputState(`${todo.title} ${todo.tags}`)
 			onCancel(event);
 		} else if (event.keyCode === ENTER_KEY) {
