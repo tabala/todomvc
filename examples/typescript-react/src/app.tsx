@@ -6,6 +6,8 @@
 
 /// <reference path="./interfaces.d.ts"/>
 
+import {Utils} from "./utils";
+
 declare var Router;
 import * as React from "react";
 import * as ReactDOM from "react-dom";
@@ -46,19 +48,9 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
 
     var val = (ReactDOM.findDOMNode(this.refs["newField"]) as HTMLInputElement).value.trim();
 
-		//todo (i) add to seperate function
-		const split = val.split(' ');
-
-		const tags = []
-		const title = []
-		for (let i = 0; i < split.length; i++) {
-			split[i].includes("@") ? tags.push(split[i]) : title.push(split[i])
-		}
-		console.log(tags)
-		console.log(title)
-
     if (val) {
-      this.props.model.addTodo(title.join(" "), tags.join(" "));
+			const {tags, title} = Utils.extractTagsAndTitleFromString(val)
+			this.props.model.addTodo(title.join(" "), tags.join(" "));
       (ReactDOM.findDOMNode(this.refs["newField"]) as HTMLInputElement).value = '';
     }
   }
@@ -81,20 +73,12 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
     this.setState({editing: todo.id});
   }
 
-  public save(todoToSave : ITodo, text : String) {
+  public save(todoToSave : ITodo, text : string) {
 		console.log('app save todo')
-		console.log(todoToSave)
-		console.log(text)
 
-		const split = text.split(' ');
 
-		const tags = []
-		const title = []
-		for (let i = 0; i < split.length; i++) {
-			split[i].includes("@") ? tags.push(split[i]) : title.push(split[i])
-		}
-		console.log(tags)
-		console.log(title)
+		const {tags, title} = Utils.extractTagsAndTitleFromString(text)
+
 
     this.props.model.save(todoToSave, tags.join(" "), title.join(" "));
     this.setState({editing: null});

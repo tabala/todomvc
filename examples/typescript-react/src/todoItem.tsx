@@ -31,7 +31,7 @@ export const TodoItem = ({
 		}
 	}
 
-	const handleChange = (event:  React.ChangeEvent<HTMLInputElement>) => {
+	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const {value} = event.target
 		setInputState(value)
 	}
@@ -55,27 +55,18 @@ export const TodoItem = ({
 			completed: todo.completed,
 			editing: editing
 		})}>
-			<div className="view">
+			<div className="view" style={{display: editing ? "none" : "flex"}}>
 				<input
 					className="toggle"
 					type="checkbox"
 					checked={todo.completed}
 					onChange={onToggle}
 				/>
-				<div style={{display: "flex", justifyContent: "space-between"}} onDoubleClick={e => handleEdit()}>
-					<label>{todo.title}</label>
-					<div style={{display: "flex"}}>
-						{todo?.tags &&
-						(
-							<label style={{color: "red"}}>
-								{todo.tags}
-							</label>
-						)}
-
-						<button style={{display: "block", position: "relative"}} className="destroy"
-										onClick={onDestroy}/>
-					</div>
-				</div>
+				<label style={{display: 'flex', flexGrow: 1, justifyContent: 'space-between'}}
+							 onDoubleClick={e => handleEdit()}>
+					{todo.title} <span style={{color: todo.completed ? "#d9d9d9" : "red"}}>{todo.tags}</span>
+				</label>
+				<button className="destroy" style={{display: "block", position: 'relative'}} onClick={onDestroy}/>
 			</div>
 			<input
 				className="edit"
