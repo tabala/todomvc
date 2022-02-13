@@ -8,7 +8,7 @@ decided to give webpack a try, since I've always wanted to learn a bit more abou
 I didn't get to test any components because I was having trouble with setting up Jest and React testing library to work
 with the setup that I made. I have experience with using RTL though.
 
-For styling I've just used React's inline CSS.
+For styling I've used React's inline CSS.
 
 I know the task didn't require me to setup webpack or anything like that, but this is what I felt like I needed and I also got to learn something in the process.
 
