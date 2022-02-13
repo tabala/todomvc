@@ -35,11 +35,11 @@ interface ITodoModel {
   onChanges : Array<any>;
   subscribe(onChange);
   inform();
-  addTodo(title, tags);
+  addTodo(val);
   toggleAll(checked);
   toggle(todoToToggle);
   destroy(todo);
-  save(todoToSave, title, tags);
+  save(todoToSave, text);
   clearCompleted();
 }
 

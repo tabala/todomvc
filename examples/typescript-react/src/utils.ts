@@ -43,7 +43,7 @@ class Utils {
 		return newObj;
 	}
 
-	public static extractTagsAndTitleFromString(inputString: string): { tags: string[], title: string[] } {
+	public static extractTagsAndTitleFromString(inputString: string): { tags: string, title: string } {
 		const inputWordsArray = inputString.split(' ');
 
 		const tags = []
@@ -59,7 +59,7 @@ class Utils {
 			}
 		})
 
-		return {tags: tags, title: title}
+		return {tags: tags.join(" "), title: title.join(" ")}
 	}
 }
 

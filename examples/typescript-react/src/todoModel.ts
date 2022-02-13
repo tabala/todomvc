@@ -33,8 +33,10 @@ class TodoModel implements ITodoModel {
     this.onChanges.forEach(function (cb) { cb(); });
   }
 
-  public addTodo(title : string, tags: string) {
-    this.todos = this.todos.concat({
+  public addTodo(val: string) {
+		const {title, tags} = Utils.extractTagsAndTitleFromString(val)
+
+		this.todos = this.todos.concat({
       id: Utils.uuid(),
       title: title,
 			tags: tags,
@@ -74,8 +76,10 @@ class TodoModel implements ITodoModel {
     this.inform();
   }
 
-  public save(todoToSave : ITodo, tags: string, title: string) {
-    this.todos = this.todos.map(function (todo) {
+  public save(todoToSave : ITodo, text: string) {
+		const {tags, title} = Utils.extractTagsAndTitleFromString(text)
+
+		this.todos = this.todos.map(function (todo) {
       return todo !== todoToSave ? todo : Utils.extend({}, todo, {title: title, tags: tags});
     });
 

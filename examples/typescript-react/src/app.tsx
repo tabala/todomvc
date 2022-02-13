@@ -1,13 +1,3 @@
-/*jshint quotmark:false */
-/*jshint white:false */
-/*jshint trailing:false */
-/*jshint newcap:false */
-/*global React, Router*/
-
-/// <reference path="./interfaces.d.ts"/>
-
-import {Utils} from "./utils";
-
 declare var Router;
 import * as React from "react";
 import * as ReactDOM from "react-dom";
@@ -48,8 +38,7 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
     var val = (ReactDOM.findDOMNode(this.refs["newField"]) as HTMLInputElement).value.trim();
 
     if (val) {
-			const {tags, title} = Utils.extractTagsAndTitleFromString(val)
-			this.props.model.addTodo(title.join(" "), tags.join(" "));
+			this.props.model.addTodo(val);
       (ReactDOM.findDOMNode(this.refs["newField"]) as HTMLInputElement).value = '';
     }
   }
@@ -73,8 +62,7 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
   }
 
   public save(todoToSave : ITodo, text : string) {
-		const {tags, title} = Utils.extractTagsAndTitleFromString(text)
-    this.props.model.save(todoToSave, tags.join(" "), title.join(" "));
+		this.props.model.save(todoToSave, text);
     this.setState({editing: null});
   }
 
