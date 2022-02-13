@@ -45,7 +45,6 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
 
     event.preventDefault();
 
-
     var val = (ReactDOM.findDOMNode(this.refs["newField"]) as HTMLInputElement).value.trim();
 
     if (val) {
@@ -74,12 +73,7 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
   }
 
   public save(todoToSave : ITodo, text : string) {
-		console.log('app save todo')
-
-
 		const {tags, title} = Utils.extractTagsAndTitleFromString(text)
-
-
     this.props.model.save(todoToSave, tags.join(" "), title.join(" "));
     this.setState({editing: null});
   }
@@ -195,3 +189,5 @@ function render() {
 
 model.subscribe(render);
 render();
+
+export {TodoApp}

@@ -3,10 +3,10 @@ const path = require('path');
 
 module.exports = {
 	mode: 'development',
-	entry: './src/app.tsx',
+	entry: path.resolve(__dirname, './src/app.tsx'),
 	devtool: 'inline-source-map',
 	devServer: {
-		static: './',
+		static: path.resolve(__dirname, './'),
 		client: {
 			logging: 'info',
 			reconnect: true,
@@ -34,6 +34,6 @@ module.exports = {
 	},
 	output: {
 		filename: 'bundle.js',
-		path: path.resolve(__dirname, 'dist'),
+		path: path.resolve(__dirname, './dist'),
 	},
 };
