@@ -6,20 +6,25 @@ Since I have never done this manually I started looking first into how to make t
 decided to give webpack a try, since I've always wanted to learn a bit more about it.
 
 I didn't get to test any components because I was having trouble with setting up Jest and React testing library to work
-with the setup that I made.
+with the setup that I made. I have experience with using RTL though.
 
 For styling I've just used React's inline CSS.
 
+I know the task didn't require me to setup webpack or anything like that, but this is what I felt like I needed and I also got to learn something in the process.
 
-####What would you do differently?
+
+#### What would you do differently?
         avoid using class components, use const|let instead of var,
         mobile view first, use react hooks, use tailwind or styled components, use folders to separate files
-####What's good?
+#### What's good?
         trimming the value, utils folder, naming consistency, saving todos to local storage, types
-####What's bad?
+#### What's bad?
         not updated dependencies, no responsive designs, node modules included in git,
         unused parameters, no eslint, px instead of rem, imports with *, using any as type, hard to read, react components
 		should have capitalized titles
-####Are you missing anything in the tooling department?
+#### Are you missing anything in the tooling department?
         linter, react testing library, jest, bundler, reload
+
+
+![image](https://user-images.githubusercontent.com/9266906/153768528-8384de6b-8486-406f-9a22-de79abf010d2.png)
 
