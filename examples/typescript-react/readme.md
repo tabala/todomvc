@@ -1,4 +1,7 @@
-This was quite a fun task for me. I've never worked with React class components before => I first made it work 
+To run the project:
+`npm i` => `npm run dev`
+
+This was quite a fun task for me. I've never worked with React class components before => I first made it work
 using the provided todoItem component, I then decided to rewrite the todoItem component to a functional component.
 
 I was bothered by not having an apparent way to restart the server and the browser on changes I made.
