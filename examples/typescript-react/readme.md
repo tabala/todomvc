@@ -1,12 +1,12 @@
-This was quite a fun task for me. I've never worked with React class components before => I first made this
-it using the provided todoItem class component, I then decided to rewrite it to a functional component.
+This was quite a fun task for me. I've never worked with React class components before => I first made it work 
+using the provided todoItem component, I then decided to rewrite the todoItem component to a functional component.
 
-I was bothered by apparently not having an easy way to restart the server and the browser on changes I made.
-Since I have never done this manually I started looking first into how to make this work with browserify but then
-decided to give webpack a try, since I've always wanted to learn a bit more about it.
+I was bothered by not having an apparent way to restart the server and the browser on changes I made.
+Since I have never done this manually (I've always used CRA or Next) I started looking first into how to make this work
+with browserify but then decided to give webpack a try, since I've always wanted to learn a bit more about it.
 
 I didn't get to test any components because I was having trouble with setting up Jest and React testing library to work
-with the setup that I made. I have experience with using RTL though.
+with the setup that I made. I have used RTL in the past though.
 
 For styling I've used React's inline CSS.
 
