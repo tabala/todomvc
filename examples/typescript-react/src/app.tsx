@@ -54,6 +54,8 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
 		for (let i = 0; i < split.length; i++) {
 			split[i].includes("@") ? tags.push(split[i]) : title.push(split[i])
 		}
+		console.log(tags)
+		console.log(title)
 
     if (val) {
       this.props.model.addTodo(title.join(" "), tags.join(" "));
@@ -80,7 +82,21 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
   }
 
   public save(todoToSave : ITodo, text : String) {
-    this.props.model.save(todoToSave, text);
+		console.log('app save todo')
+		console.log(todoToSave)
+		console.log(text)
+
+		const split = text.split(' ');
+
+		const tags = []
+		const title = []
+		for (let i = 0; i < split.length; i++) {
+			split[i].includes("@") ? tags.push(split[i]) : title.push(split[i])
+		}
+		console.log(tags)
+		console.log(title)
+
+    this.props.model.save(todoToSave, tags.join(" "), title.join(" "));
     this.setState({editing: null});
   }
 
@@ -168,11 +184,11 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
     return (
       <div>
         <header className="header">
-          <h1>sdf</h1>
+          <h1>todos</h1>
           <input
             ref="newField"
             className="new-todo"
-            placeholder="What needsdfs to be done?"
+            placeholder="What needs to be done?"
             onKeyDown={ e => this.handleNewTodoKeyDown(e) }
             autoFocus={true}
           />

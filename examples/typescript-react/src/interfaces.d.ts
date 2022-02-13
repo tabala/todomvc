@@ -1,7 +1,7 @@
 interface ITodo {
   id: string,
   title: string,
-	tags?: string
+	tags?: string,
   completed: boolean
 }
 
@@ -17,8 +17,8 @@ interface ITodoItemProps {
 }
 
 interface ITodoItemState {
-  title : string
-	tags: string
+  title : string []
+	tags: string []
 }
 
 interface ITodoFooterProps {
@@ -35,11 +35,11 @@ interface ITodoModel {
   onChanges : Array<any>;
   subscribe(onChange);
   inform();
-  addTodo(title : string, tags: string);
+  addTodo(title, tags);
   toggleAll(checked);
   toggle(todoToToggle);
   destroy(todo);
-  save(todoToSave, text);
+  save(todoToSave, title, tags);
   clearCompleted();
 }
 

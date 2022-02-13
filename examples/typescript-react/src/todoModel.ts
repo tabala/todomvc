@@ -74,9 +74,9 @@ class TodoModel implements ITodoModel {
     this.inform();
   }
 
-  public save(todoToSave : ITodo, text : string) {
+  public save(todoToSave : ITodo, tags: string, title: string) {
     this.todos = this.todos.map(function (todo) {
-      return todo !== todoToSave ? todo : Utils.extend({}, todo, {title: text});
+      return todo !== todoToSave ? todo : Utils.extend({}, todo, {title: title, tags: tags});
     });
 
     this.inform();
